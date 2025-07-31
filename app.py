@@ -4,7 +4,7 @@ import streamlit as st
 st.title("Repaso de comandos básicos en Microsoft SQL Server")
 
 st.sidebar.image("microsoft-sql_server.png")
-st.sidebar.info("Autor: Dr. Jesus Alvarado-Huayhuaz")
+st.sidebar.info("Dr. Jesus Alvarado-Huayhuaz")
 # Menú lateral
 menu = st.sidebar.radio("Selecciona una clase:", ["Sesión 1: Introducción", 
                                                   "Sesión 2: Consultas SELECT", 
