@@ -100,18 +100,18 @@ if menu == "Sesión 4: ":
     st.header("Sesión 4: ")
     st.code("""
 -- Insertar
-)
+""", language='sql')
 
 # Contenido de cada clase
 if menu == "Sesión 5: ":
     st.header("Sesión 5: ")
     st.code("""
 -- Insertar
-)
+""", language='sql')
 
 # Contenido de cada clase
 if menu == "Sesión 6: ":
     st.header("Sesión 6: ")
     st.code("""
     -- Insertar
-    )
+""", language='sql')
