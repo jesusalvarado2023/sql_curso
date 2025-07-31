@@ -6,7 +6,12 @@ st.title("Repaso de comandos básicos en Microsoft SQL Server")
 st.sidebar.image("microsoft-sql_server.png")
 
 # Menú lateral
-menu = st.sidebar.radio("Selecciona una clase:", ["Sesión 1: Introducción", "Sesión 2: Consultas SELECT", "Sesión 3: Joins y filtros"])
+menu = st.sidebar.radio("Selecciona una clase:", ["Sesión 1: Introducción", 
+                                                  "Sesión 2: Consultas SELECT", 
+                                                  "Sesión 3: Joins y filtros",
+                                                  "Sesión 4: ", 
+                                                  "Sesión 5: ", 
+                                                  "Sesión 6: "])
 
 # Contenido de cada clase
 if menu == "Sesión 1: Introducción":
@@ -89,3 +94,21 @@ JOIN Inscripciones i ON e.ID = i.ID
 JOIN Cursos c ON i.CursoID = c.CursoID
 WHERE c.NombreCurso = 'Biología';
 """, language='sql')
+
+# Contenido de cada clase
+if menu == "Sesión 4: ":
+    st.header("Sesión 4: ")
+    st.code("""
+-- Insertar
+
+# Contenido de cada clase
+if menu == "Sesión 5: ":
+    st.header("Sesión 5: ")
+    st.code("""
+-- Insertar
+
+# Contenido de cada clase
+if menu == "Sesión 6: ":
+    st.header("Sesión 6: ")
+    st.code("""
+-- Insertar
