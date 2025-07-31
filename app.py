@@ -53,8 +53,8 @@ SELECT COUNT(*) AS TotalEstudiantes FROM Estudiantes;
 
 ###############################
 
-elif menu == "Clase 3: Joins y filtros":
-    st.header("Clase 3: Joins y filtros")
+elif menu == "Sesión 3: Joins y filtros":
+    st.header("Sesión 3: Joins y filtros")
     st.code("""
 -- Crear una segunda tabla
 CREATE TABLE Cursos (
