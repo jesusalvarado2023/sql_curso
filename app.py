@@ -1,14 +1,16 @@
 import streamlit as st
 
 # Título principal
-st.title("Tutorial de comandos básicos en Microsoft SQL Server")
+st.title("Repaso de comandos básicos en Microsoft SQL Server")
+
+st.sidebar.image("microsoft-sql_server.png")
 
 # Menú lateral
-menu = st.sidebar.radio("Selecciona una clase:", ["Clase 1: Comandos básicos", "Clase 2: Consultas SELECT", "Clase 3: Joins y filtros"])
+menu = st.sidebar.radio("Selecciona una clase:", ["Sesión 1: Introducción", "Sesión 2: Consultas SELECT", "Sesión 3: Joins y filtros"])
 
 # Contenido de cada clase
-if menu == "Clase 1: Comandos básicos":
-    st.header("Clase 1: Comandos básicos")
+if menu == "Sesión 1: Introducción":
+    st.header("Sesión 1: Introducción")
     st.code("""
 -- Crear una base de datos
 CREATE DATABASE MiPrimeraBD;
@@ -31,8 +33,10 @@ INSERT INTO Estudiantes (ID, Nombre, Edad) VALUES (2, 'Luis', 22);
 SELECT * FROM Estudiantes;
 """, language='sql')
 
-elif menu == "Clase 2: Consultas SELECT":
-    st.header("Clase 2: Consultas SELECT")
+###############################
+
+elif menu == "Sesión 2: Consultas SELECT":
+    st.header("Sesión 2: Consultas SELECT")
     st.code("""
 -- Seleccionar columnas específicas
 SELECT Nombre, Edad FROM Estudiantes;
@@ -46,6 +50,8 @@ SELECT * FROM Estudiantes ORDER BY Edad DESC;
 -- Contar registros
 SELECT COUNT(*) AS TotalEstudiantes FROM Estudiantes;
 """, language='sql')
+
+###############################
 
 elif menu == "Clase 3: Joins y filtros":
     st.header("Clase 3: Joins y filtros")
