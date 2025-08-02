@@ -101,8 +101,8 @@ WHERE c.NombreCurso = 'Biología';
 elif menu == "Prueba 1":
     test1.mostrar()
 
-elif opcion == "Prueba 2":
+elif menu == "Prueba 2":
     test2.mostrar()
 
-elif opcion == "Prueba 3":
+elif menu == "Prueba 3":
     test3.mostrar()
