@@ -2,7 +2,7 @@ import streamlit as st
 from Tests import test1, test2, test3
 
 # Título principal
-st.title("Repaso de comandos básicos en Microsoft SQL Server")
+st.title("Comandos básicos en Microsoft SQL Server")
 
 st.sidebar.image("microsoft-sql_server.png")
 st.sidebar.info("Dr. Jesus Alvarado-Huayhuaz")
