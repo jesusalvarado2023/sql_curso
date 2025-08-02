@@ -1,106 +1,59 @@
 import streamlit as st
 
 def mostrar():
-    st.write("Responde las siguientes preguntas y haz clic en **Verificar respuestas** para ver si acertaste. Al final de cada pregunta se mostrará la explicación.")
-
-# Diccionario de preguntas, opciones, respuestas correctas y explicaciones
-    quiz_data = [
+    preguntas = [
         {
-            "pregunta": "1. ¿Puede SQL Server ser instalado en un idioma diferente al idioma de visualización de Windows en ediciones de Windows que no son 'Single Language'?",
-            "opciones": [
-                "a. Únicamente si se instala a través de la línea de comandos.",
-                "b. Sí, en ediciones de Windows que permiten múltiples idiomas, el instalador de SQL Server a menudo ofrece la opción de seleccionar el idioma de instalación independientemente del idioma de visualización actual del sistema.",
-                "c. Solo si se utiliza una versión de SQL Server anterior a 2012.",
-                "d. No, el instalador de SQL Server siempre fuerza el idioma del sistema operativo.",
-                "e. No, en ediciones de Windows que permiten múltiples idiomas, el instalador de SQL Server solo permite instalar en el idioma ingles."
-            ],
-            "respuesta_correcta": "b",
-            "explicacion": "SQL Server puede instalarse en un idioma distinto al del sistema, si la edición de Windows lo permite. El idioma del instalador determina el idioma de instalación."
+            "texto": "¿Qué extensión de archivo se utiliza típicamente para el archivo de registro de transacciones de una base de datos de SQL Server?",
+            "alternativas": ["a. .ldf", "b. .sql", "c. .mdf", "d. .log", "e. .ndf"],
+            "respuesta_correcta": "a. .ldf",
+            "explicacion": "✅ **.ldf** es el archivo de registro de transacciones. `.mdf` es el archivo de datos principal, `.ndf` secundarios, `.sql` son scripts y `.log` no es válido en SQL Server."
         },
         {
-            "pregunta": "2. ¿Qué tipo de sistema de gestión de bases de datos es SQL Server 2022?",
-            "opciones": [
-                "a. Relacional",
-                "b. Orientado a grafos",
-                "c. Orientado a documentos",
-                "d. Desnormalizado",
-                "e. NoSQL"
-            ],
-            "respuesta_correcta": "a",
-            "explicacion": "SQL Server es un sistema de bases de datos relacional (RDBMS), aunque soporta datos semiestructurados y grafos, su núcleo sigue siendo relacional."
+            "texto": "Un Tipo de Datos Definido por el Usuario (UDT) de alias en SQL Server debe basarse en qué?",
+            "alternativas": ["a. Un tipo de dato del CLR", "b. Un tipo de datos definido por el sistema de SQL Server.", "c. Otro tipo de datos definido por el usuario.", "d. Un procedimiento almacenado.", "e. Un ensamblado CLR."],
+            "respuesta_correcta": "b. Un tipo de datos definido por el sistema de SQL Server.",
+            "explicacion": "✅ Un UDT alias debe basarse en un tipo de datos **del sistema** (ej. `CHAR(10)`), no en CLR ni en otros UDTs."
         },
         {
-            "pregunta": "3. Si un desarrollador necesita añadir una nueva columna llamada 'email' a una tabla existente llamada 'Usuarios', ¿qué tipo de comando SQL utilizaría?",
-            "opciones": [
-                "a. TCC (Transaction Control Commands)",
-                "b. DDL (Data Definition Language)",
-                "c. DCL (Data Control Language)",
-                "d. DQL (Data Query Language)",
-                "e. DML (Data Manipulation Language)"
-            ],
-            "respuesta_correcta": "b",
-            "explicacion": "Agregar columnas modifica la estructura de la tabla, por lo tanto se usa un comando DDL como ALTER TABLE."
+            "texto": "¿Cuál es el comando principal para crear una nueva base de datos en SQL Server?",
+            "alternativas": ["a. NEW DATABASE", "b. ALTER DATABASE", "c. BUILD DATABASE", "d. CREATE DATABASE", "e. ADD DATABASE"],
+            "respuesta_correcta": "d. CREATE DATABASE",
+            "explicacion": "✅ `CREATE DATABASE` es el comando correcto. Las otras opciones no son comandos válidos en SQL Server para este propósito."
         },
         {
-            "pregunta": "4. ¿Qué edición de SQL Server 2022 ofrece la funcionalidad completa de la edición Enterprise, pero está licenciada únicamente para desarrollo y pruebas, no para uso en producción?",
-            "opciones": [
-                "a. SQL Server 2022 Developer Edition",
-                "b. SQL Server 2022 Enterprise Edition",
-                "c. SQL Server 2022 Express Edition",
-                "d. SQL Server 2022 Web Edition",
-                "e. SQL Server 2022 Standard Edition"
-            ],
-            "respuesta_correcta": "a",
-            "explicacion": "La Developer Edition ofrece todas las funciones de Enterprise, pero solo se puede usar para desarrollo y pruebas, no en producción."
+            "texto": "¿Qué comando se utiliza para crear un Tipo de Datos Definido por el Usuario (UDT) de alias basado en un tipo de datos de sistema existente?",
+            "alternativas": ["a. ALTER TYPE", "b. CREATE TYPE", "c. DEFINE TYPE", "d. CREATE ALIAS", "e. NEW TYPE"],
+            "respuesta_correcta": "b. CREATE TYPE",
+            "explicacion": "✅ `CREATE TYPE` se utiliza para crear un UDT alias. Las otras opciones no aplican o no existen en SQL Server."
         },
         {
-            "pregunta": "5. ¿Qué tecnología en SQL Server 2022 permite consultar datos de fuentes externas como Oracle, Teradata o almacenamiento compatible con S3 sin moverlos?",
-            "opciones": [
-                "a. Always Encrypted",
-                "b. En SQL Server no es posible.",
-                "c. PolyBase",
-                "d. Change Data Capture",
-                "e. In-Memory OLTP"
-            ],
-            "respuesta_correcta": "c",
-            "explicacion": "PolyBase permite consultar datos externos como si fueran locales, incluyendo Oracle, Teradata y S3, sin mover los datos."
-        }
+            "texto": "Por defecto, ¿Qué tipo de índice crea SQL Server cuando se define una restricción UNIQUE en una columna?",
+            "alternativas": ["a. Índice XML", "b. No crea ningún índice", "c. Índice agrupado (Clustered index)", "d. Índice espacial (Spatial index)", "e. Índice no agrupado (Non-clustered index)"],
+            "respuesta_correcta": "e. Índice no agrupado (Non-clustered index)",
+            "explicacion": "✅ Por defecto, SQL Server crea un **índice no agrupado** para restricciones `UNIQUE`, a menos que se especifique lo contrario."
+        },
     ]
     
-    # Para almacenar respuestas del usuario
     respuestas_usuario = []
     
-    with st.form(key="quiz_form"):
-        for idx, item in enumerate(quiz_data):
-            st.write(f"### {item['pregunta']}")
-            respuesta = st.radio(
-                label="Selecciona una respuesta:",
-                options=item["opciones"],
-                key=f"pregunta_{idx}"
-            )
-            respuestas_usuario.append(respuesta)
+    st.markdown("### Preguntas:")
     
-        submit = st.form_submit_button("✅ Verificar respuestas")
-    
-    # Mostrar resultados y explicaciones
-    if submit:
+    for i, p in enumerate(preguntas):
+        st.markdown(f"**Pregunta {i+1}:** {p['texto']}")
+        respuesta = st.radio(
+            f"Selecciona tu respuesta para la pregunta {i+1}:",
+            options=p["alternativas"],
+            key=f"pregunta_{i}"
+        )
+        respuestas_usuario.append(respuesta)
         st.markdown("---")
-        st.subheader("📊 Resultados")
-        puntaje = 0
     
-        for idx, item in enumerate(quiz_data):
-            seleccion = respuestas_usuario[idx]
-            letra_seleccionada = seleccion.split(".")[0]
-            correcta = item["respuesta_correcta"]
-    
-            if letra_seleccionada == correcta:
-                st.success(f"✔ Pregunta {idx+1}: ¡Correcto!")
-                puntaje += 1
+    if st.button("✅ Verificar respuestas"):
+        for i, p in enumerate(preguntas):
+            st.markdown(f"**Pregunta {i+1}:** {p['texto']}")
+            if respuestas_usuario[i] == p["respuesta_correcta"]:
+                st.success(f"✔️ Correcto: {respuestas_usuario[i]}")
             else:
-                st.error(f"✘ Pregunta {idx+1}: Incorrecto. Tu respuesta: {seleccion}")
-    
-            st.info(f"**Explicación:** {item['explicacion']}")
+                st.error(f"❌ Incorrecto: {respuestas_usuario[i]}. La respuesta correcta es: {p['respuesta_correcta']}")
+            st.info(p["explicacion"])
             st.markdown("---")
-    
-        st.subheader(f"🎯 Puntuación final: {puntaje} / {len(quiz_data)}")
-    
