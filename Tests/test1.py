@@ -1,8 +1,5 @@
 import streamlit as st
 
-#st.set_page_config(page_title="Quiz SQL Server 2022", layout="centered")
-#st.title("🧠 Quiz Interactivo: SQL Server 2022")
-
 def mostrar():
     st.write("Responde las siguientes preguntas y haz clic en **Verificar respuestas** para ver si acertaste. Al final de cada pregunta se mostrará la explicación.")
 
@@ -107,3 +104,4 @@ def mostrar():
     
         st.subheader(f"🎯 Puntuación final: {puntaje} / {len(quiz_data)}")
     
+
