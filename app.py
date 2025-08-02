@@ -6,6 +6,7 @@ st.title("Repaso de comandos básicos en Microsoft SQL Server")
 
 st.sidebar.image("microsoft-sql_server.png")
 st.sidebar.info("Dr. Jesus Alvarado-Huayhuaz")
+
 # Menú lateral
 menu = st.sidebar.radio("Selecciona una clase:", ["Ejercicio 1: Crear BD", 
                                                   "Ejercicio 2: Consultas SELECT", 
@@ -99,7 +100,9 @@ WHERE c.NombreCurso = 'Biología';
 # Contenido de quizz
 elif menu == "Prueba 1":
     test1.mostrar()
+
 elif opcion == "Prueba 2":
     test2.mostrar()
+
 elif opcion == "Prueba 3":
     test3.mostrar()
