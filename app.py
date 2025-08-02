@@ -1,4 +1,5 @@
 import streamlit as st
+from Tests import test1, test2, test3
 
 # Título principal
 st.title("Repaso de comandos básicos en Microsoft SQL Server")
@@ -6,16 +7,16 @@ st.title("Repaso de comandos básicos en Microsoft SQL Server")
 st.sidebar.image("microsoft-sql_server.png")
 st.sidebar.info("Dr. Jesus Alvarado-Huayhuaz")
 # Menú lateral
-menu = st.sidebar.radio("Selecciona una clase:", ["Sesión 1: Introducción", 
-                                                  "Sesión 2: Consultas SELECT", 
-                                                  "Sesión 3: Joins y filtros",
-                                                  "Sesión 4: ", 
-                                                  "Sesión 5: ", 
-                                                  "Sesión 6: "])
+menu = st.sidebar.radio("Selecciona una clase:", ["Ejercicio 1: Crear BD", 
+                                                  "Ejercicio 2: Consultas SELECT", 
+                                                  "Ejercicio 3: Joins y filtros",
+                                                  "Prueba 1", 
+                                                  "Prueba 2", 
+                                                  "Prueba 3"])
 
 # Contenido de cada clase
-if menu == "Sesión 1: Introducción":
-    st.header("Sesión 1: Introducción")
+if menu == "Ejercicio 1: Crear BD":
+    st.header("Ejercicio 1: Introducción")
     st.code("""
 -- Crear una base de datos
 CREATE DATABASE MiPrimeraBD;
@@ -40,8 +41,8 @@ SELECT * FROM Estudiantes;
 
 ###############################
 
-elif menu == "Sesión 2: Consultas SELECT":
-    st.header("Sesión 2: Consultas SELECT")
+elif menu == "Ejercicio 2: Consultas SELECT":
+    st.header("Ejercicio 2: Consultas SELECT")
     st.code("""
 -- Seleccionar columnas específicas
 SELECT Nombre, Edad FROM Estudiantes;
@@ -58,8 +59,8 @@ SELECT COUNT(*) AS TotalEstudiantes FROM Estudiantes;
 
 ###############################
 
-elif menu == "Sesión 3: Joins y filtros":
-    st.header("Sesión 3: Joins y filtros")
+elif menu == "Ejercicio 3: Joins y filtros":
+    st.header("Ejercicio 3: Joins y filtros")
     st.code("""
 -- Crear una segunda tabla
 CREATE TABLE Cursos (
@@ -95,23 +96,10 @@ JOIN Cursos c ON i.CursoID = c.CursoID
 WHERE c.NombreCurso = 'Biología';
 """, language='sql')
 
-# Contenido de cada clase
-if menu == "Sesión 4: ":
-    st.header("Sesión 4: ")
-    st.code("""
--- Insertar
-""", language='sql')
-
-# Contenido de cada clase
-if menu == "Sesión 5: ":
-    st.header("Sesión 5: ")
-    st.code("""
--- Insertar
-""", language='sql')
-
-# Contenido de cada clase
-if menu == "Sesión 6: ":
-    st.header("Sesión 6: ")
-    st.code("""
-    -- Insertar
-""", language='sql')
+# Contenido de quizz
+elif menu == "Prueba 1":
+    test1.mostrar()
+elif opcion == "Prueba 2":
+    test2.mostrar()
+elif opcion == "Prueba 3":
+    test3.mostrar()
