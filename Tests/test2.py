@@ -1,6 +1,7 @@
 import streamlit as st
 
 def mostrar():
+    st.write("Responde las siguientes preguntas y haz clic en **Verificar respuestas** para ver si acertaste. Al final de cada pregunta se mostrará la explicación.")
     preguntas = [
         {
             "texto": "¿Qué extensión de archivo se utiliza típicamente para el archivo de registro de transacciones de una base de datos de SQL Server?",
@@ -57,3 +58,4 @@ def mostrar():
                 st.error(f"❌ Incorrecto: {respuestas_usuario[i]}. La respuesta correcta es: {p['respuesta_correcta']}")
             st.info(p["explicacion"])
             st.markdown("---")
+
