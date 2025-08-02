@@ -5,7 +5,7 @@ from Tests import test1, test2, test3
 st.title("Microsoft SQL Server para Dummies")
 
 st.sidebar.image("microsoft-sql_server.png")
-st.sidebar.info("Dr. Jesus Alvarado-Huayhuaz")
+st.sidebar.info("Jesus A.")
 
 # Menú lateral
 menu = st.sidebar.radio("Selecciona una clase:", ["Ejercicio 1: Crear BD", 
